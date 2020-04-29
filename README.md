@@ -6,5 +6,5 @@ Lua是用C写的编程语言，它提供了一系列的API供用户可以在C里
 这个工程是我的博客的演示工程，使用的版本是unity2019.3.0 + tolua。  之所以选择tolua，是因为tolua提供的lua端的api接口更接近lua原生提供给C的api接口。
 如果使用的是其它版本的unity，请自行修复报错。
 博客地址:  
-[【Lua与C#交互（一）】堆栈的概念](https://blog.csdn.net/j756915370/article/details/105779176)  
+[【Lua与C#交互（一）】Lua中的栈](https://blog.csdn.net/j756915370/article/details/105779176)  
 [【Lua与C#交互（二）】加载Lua文件](https://blog.csdn.net/j756915370/article/details/105846924)
