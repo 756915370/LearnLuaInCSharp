@@ -17,11 +17,12 @@ public class LearnLoadFile : MonoBehaviour
         
         //返回结果不是0代表加载失败
         var result = LuaDLL.luaL_loadfile(L, path);
+         
         if ( result!= 0) 
         {
             Debug.LogError(LuaDLL.lua_tostring(L, -1));
         }
-
+        //LuaDLL.luaL_dofile(L, path);
         if(LuaDLL.lua_pcall(L, 0, 0, 0) != 0)
         {
             Debug.LogError(LuaDLL.lua_tostring(L, -1));

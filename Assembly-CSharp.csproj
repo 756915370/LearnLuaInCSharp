@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Examples\01_Stack\LearnStack.cs" />
     <Compile Include="Assets\Examples\02_LoadFile\LearnLoadFile.cs" />
+    <Compile Include="Assets\Examples\03_Function\LearnFunction.cs" />
     <Compile Include="Assets\Source\Generate\DelegateFactory.cs" />
     <Compile Include="Assets\Source\Generate\LuaBinder.cs" />
     <Compile Include="Assets\Source\Generate\LuaInterface_DebuggerWrap.cs" />
@@ -183,31 +184,31 @@
     <None Include="Assets\ToLua\Injection\InjectionBridgeEditorInfo.xml" />
     <None Include="Assets\ToLua\Injection\LuaInjectionSkipPaths.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity2019/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -387,10 +388,10 @@
       <HintPath>D:/Unity2019/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="CString">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Assets/Plugins/CString.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Assets/Plugins/CString.dll</HintPath>
     </Reference>
     <Reference Include="Debugger">
-      <HintPath>D:/Unity2019/Projects/LearnLuaInCSharp/Assets/Plugins/Debugger.dll</HintPath>
+      <HintPath>F:/Git/LearnLuaInCSharp/Assets/Plugins/Debugger.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Unity2019/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
