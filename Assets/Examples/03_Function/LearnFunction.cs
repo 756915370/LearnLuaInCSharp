@@ -16,80 +16,78 @@ public class LearnFunction : MonoBehaviour
         //这三个方法不能同时运行，必须注释掉2个跑另一个
         //CallLuaFunction(L);
         //LuaHelloWorld(L);
-        HandleError(L);
-        
-        LuaDLL.lua_close(L);
+        HandleError( L );
+
+        LuaDLL.lua_close( L );
     }
 
-    private void HandleError(IntPtr L)
+    private void HandleError( IntPtr L )
     {
-        var functionIntptr = Marshal.GetFunctionPointerForDelegate(new MyCSFunction(ErrorHandle));
-        LuaDLL.lua_pushcclosure(L, functionIntptr, 0);
+        LuaDLL.lua_pushcclosure( L, ErrorHandle, 0 );
 
-        var errorFuncIndex = LuaDLL.lua_gettop(L);//获得栈顶位置
+        var errorFuncIndex = LuaDLL.lua_gettop( L );//获得栈顶位置
         var path = Application.dataPath + "/Examples/03_Function/03.lua";
 
-        LuaDLL.luaL_loadfile(L, path);
-        LuaDLL.lua_pcall(L, 0, 0, 0);
+        LuaDLL.luaL_loadfile( L, path );
+        LuaDLL.lua_pcall( L, 0, 0, 0 );
 
-        LuaDLL.lua_getglobal(L, "addandsub");
+        LuaDLL.lua_getglobal( L, "addandsub" );
 
-        LuaDLL.lua_pushnumber(L, 10);
-        LuaDLL.lua_pushstring(L, "error");
+        LuaDLL.lua_pushnumber( L, 10 );
+        LuaDLL.lua_pushstring( L, "error" );
 
-        LuaDLL.lua_pcall(L, 2, 2, errorFuncIndex);
+        LuaDLL.lua_pcall( L, 2, 2, errorFuncIndex );
 
-        Debug.Log(LuaDLL.lua_tonumber(L, -1));
-        Debug.Log(LuaDLL.lua_tonumber(L, -2));
+        Debug.Log( LuaDLL.lua_tonumber( L, -1 ) );
+        Debug.Log( LuaDLL.lua_tonumber( L, -2 ) );
     }
-    
-    private void LuaHelloWorld(IntPtr L)
+
+    private void LuaHelloWorld( IntPtr L )
     {
-        var functionIntptr = Marshal.GetFunctionPointerForDelegate(new MyCSFunction(HelloWorld));
-        LuaDLL.lua_pushcclosure(L, functionIntptr, 0);
-        LuaDLL.lua_pcall(L, 0, 0, 0);
+        LuaDLL.lua_pushcclosure( L, HelloWorld, 0 );
+        LuaDLL.lua_pcall( L, 0, 0, 0 );
     }
-    
-    private void CallLuaFunction(IntPtr L)
+
+    private void CallLuaFunction( IntPtr L )
     {
         var path = Application.dataPath + "/Examples/03_Function/03.lua";
 
-        LuaDLL.luaL_loadfile(L, path);
-        LuaDLL.lua_pcall(L, 0, 0, 0);
+        LuaDLL.luaL_loadfile( L, path );
+        LuaDLL.lua_pcall( L, 0, 0, 0 );
 
-        LuaDLL.lua_getglobal(L, "addandsub");
+        LuaDLL.lua_getglobal( L, "addandsub" );
 
-        LuaDLL.lua_pushnumber(L, 10);
-        LuaDLL.lua_pushnumber(L, 20);
+        LuaDLL.lua_pushnumber( L, 10 );
+        LuaDLL.lua_pushnumber( L, 20 );
 
-        if (LuaDLL.lua_pcall(L, 2, 2, 0) != 0)
+        if( LuaDLL.lua_pcall( L, 2, 2, 0 ) != 0 )
         {
-            Debug.LogError(LuaDLL.lua_tostring(L, -1));
+            Debug.LogError( LuaDLL.lua_tostring( L, -1 ) );
         }
 
-        Debug.Log(LuaDLL.lua_tonumber(L, -1));
-        Debug.Log(LuaDLL.lua_tonumber(L, -2));
+        Debug.Log( LuaDLL.lua_tonumber( L, -1 ) );
+        Debug.Log( LuaDLL.lua_tonumber( L, -2 ) );
     }
 
-    [MonoPInvokeCallbackAttribute(typeof(MyCSFunction))]
-    private static void HelloWorld(IntPtr L)
+    [MonoPInvokeCallbackAttribute( typeof( LuaCSFunction ) )]
+    private static int HelloWorld( IntPtr L )
     {
-        Debug.Log("helloworld");
+        Debug.Log( "helloworld" );
+        return 0;
     }
 
-    [MonoPInvokeCallbackAttribute(typeof(MyCSFunction))]
-    private static void ErrorHandle(IntPtr L)
+    [MonoPInvokeCallbackAttribute( typeof( LuaCSFunction ) )]
+    private static int ErrorHandle( IntPtr L )
     {
-        if (LuaDLL.lua_isstring(L, -1) == 1)
+        if( LuaDLL.lua_isstring( L, -1 ) == 1 )
         {
-            Debug.LogError(LuaDLL.lua_tostring(L, -1));
+            Debug.LogError( LuaDLL.lua_tostring( L, -1 ) );
+            return -1;
         }
         else
         {
-            Debug.Log("Not find error string");
+            Debug.Log( "Not find error string" );
+            return 0;
         }
     }
 }
-
-[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-public delegate void MyCSFunction(IntPtr L);

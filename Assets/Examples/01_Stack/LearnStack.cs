@@ -14,12 +14,12 @@ public class LearnStack : MonoBehaviour
     {
         var num = 756915370;
         IntPtr L = LuaDLL.luaL_newstate();
-        LuaDLL.lua_pushnumber(L,num);
+        LuaDLL.lua_pushnumber( L, num );
         //等于1说明是True
-        if (LuaDLL.lua_isnumber(L, 1) == 1)
+        if( LuaDLL.lua_isnumber( L, 1 ) == 1 )
         {
-            Debug.Log(LuaDLL.lua_tonumber(L,1));
+            Debug.Log( LuaDLL.lua_tonumber( L, 1 ) );
         }
-        LuaDLL.lua_close(L);
+        LuaDLL.lua_close( L );
     }
 }
